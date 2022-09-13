@@ -5,10 +5,14 @@ import React, {useState} from 'react';
 const ToDo = () => {
 	const [todoValue, setTodo ] = useState('');
 	const [todoList, setTodoList ] = useState([]);
+
+	
 	
 	const changeList = (e) => {
 		if(e.key == 'Enter'){
 			{setTodoList([...todoList, todoValue])}
+			e.target.value="";
+			
 		}
 		
 		
@@ -27,9 +31,9 @@ const ToDo = () => {
 
 
 	return (
-		<div class="align-self-center">
+		<div className="align-self-center">
 			<h1>ToDos</h1>
-			<input type="text" placeholder="What needs to be done" 
+			<input type="text"  placeholder="What needs to be done" 
 			onChange={e => setTodo(e.target.value)} 
 			onKeyDown={changeList}/> 
 			
